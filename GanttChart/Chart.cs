@@ -109,6 +109,19 @@ namespace Braincase.GanttChart
             }
         }
 
+        //LS--------------------        
+        protected override void OnMouseWheel(MouseEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("OnMouseWheel---------");
+            System.Diagnostics.Debug.WriteLine(e.X.ToString(), e.Y.ToString());
+        }
+        override protected void OnScroll(ScrollEventArgs se)
+        {
+            System.Diagnostics.Debug.WriteLine("OnScroll---------");
+            System.Diagnostics.Debug.WriteLine(se.NewValue.ToString(), se.OldValue.ToString());
+        }
+        //----------------------
+
         /// <summary>
         /// Get the latest selected task
         /// </summary>

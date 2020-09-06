@@ -190,8 +190,24 @@ namespace Braincase.GanttChart
             _mhScroll = new HScrollBar();
             _mvScroll = new VScrollBar();
             _mScrollHolePatch = new UserControl();
+
             WorldWidth = view.Width;
             WorldHeight = view.Height;
+
+            // https://blog.csdn.net/truelove12358/article/details/84512165?utm_medium=distribute.pc_relevant_ask_down.none-task-blog-baidujs-1.nonecase&depth_1-utm_source=distribute.pc_relevant_ask_down.none-task-blog-baidujs-1.nonecase
+            dg = new DataGridView();                        //----------LS
+            List<int> data = new List<int>(); 
+            for (int i = 0; i < 50; i++)
+            {
+                data.Add(i);
+            }
+            dg.DataSource = data;
+            dg.Dock = DockStyle.None;
+            dg.Location = new Point(0, 0);
+            dg.Width = (_mDevice.Width - _mvScroll.Width) / 2;
+            dg.Height = (_mDevice.Height - _mhScroll.Height);          
+            _mDevice.Controls.Add(dg);       //----------LS
+
 
             _mDevice.Controls.Add(_mhScroll);
             _mDevice.Controls.Add(_mvScroll);
@@ -199,13 +215,20 @@ namespace Braincase.GanttChart
 
             _mhScroll.Scroll += (s, e) => X = e.NewValue;
             _mvScroll.Scroll += (s, e) => Y = e.NewValue;
+            //dg.Resize += (s, e) => this.Resize(); //Resize();
             _mDevice.Resize += (s, e) => this.Resize();
             _mDevice.MouseWheel += (s, e) => Y -= e.Delta > 0 ? WheelDelta : -WheelDelta;
             WheelDelta = _mvScroll.LargeChange;
 
             _RecalculateMatrix();
             _RecalculateRectangle();
+
+            //----------
+            this._mhScroll.Scroll += new ScrollEventHandler(hScrollBar1_Scroll);
         }
+
+        //--------LS
+        public DataGridView dg; //= new DataGrid();        
 
         /// <summary>
         /// Identity Matrix
@@ -244,6 +267,17 @@ namespace Braincase.GanttChart
         /// </summary>
         public void Resize()
         {
+            //--------LS
+            if (dg == null)
+            {
+                dg = new DataGridView();
+            }
+            dg.Dock = DockStyle.None;
+            dg.Location = new Point(0, 0);
+            dg.Width = (_mDevice.Width - _mvScroll.Width) / 2;
+            dg.Height = (_mDevice.Height - _mhScroll.Height);
+            //_mDevice.Controls.Add(dg);       //----------LS
+
             _mhScroll.Dock = DockStyle.None;
             _mhScroll.Location = new Point(0, _mDevice.Height - _mhScroll.Height);
             _mhScroll.Width = _mDevice.Width - _mvScroll.Width;
@@ -253,7 +287,7 @@ namespace Braincase.GanttChart
             _mvScroll.Height = _mDevice.Height - _mhScroll.Height;
 
             _mScrollHolePatch.Location = new Point(_mhScroll.Right, _mvScroll.Bottom);
-            _mScrollHolePatch.Size = new Size(_mvScroll.Width, _mhScroll.Height);
+            _mScrollHolePatch.Size = new Size(_mvScroll.Width, _mhScroll.Height);  //----------LS ++++
 
             if (WorldWidth <= _mDevice.Width)
             {
@@ -280,6 +314,15 @@ namespace Braincase.GanttChart
             _RecalculateMatrix();
 
             _mDevice.Invalidate();
+            //dg.Width = 500;// (_mDevice.Width - _mvScroll.Width) / 2;          //------------LS
+            //dg.Height = 500;// (_mDevice.Height - _mhScroll.Height) / 2;
+        }
+
+        //------------
+        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {//关键代码位置
+            this.dg.HorizontalScrollingOffset = _mhScroll.Value; Application.DoEvents();
+
         }
 
         /// <summary>
