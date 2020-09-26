@@ -45,6 +45,8 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.TaskGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.gridChartSpliter = new System.Windows.Forms.SplitContainer();
+            this.grid = new System.Windows.Forms.DataGridView();
             this._mChart = new Braincase.GanttChart.Chart();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,6 +96,11 @@
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TaskGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridChartSpliter)).BeginInit();
+            this.gridChartSpliter.Panel1.SuspendLayout();
+            this.gridChartSpliter.Panel2.SuspendLayout();
+            this.gridChartSpliter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -112,9 +119,9 @@
             // _mSplitter1.Panel2
             // 
             this._mSplitter1.Panel2.AutoScroll = true;
-            this._mSplitter1.Panel2.Controls.Add(this._mChart);
-            this._mSplitter1.Size = new System.Drawing.Size(829, 663);
-            this._mSplitter1.SplitterDistance = 237;
+            this._mSplitter1.Panel2.Controls.Add(this.gridChartSpliter);
+            this._mSplitter1.Size = new System.Drawing.Size(1196, 392);
+            this._mSplitter1.SplitterDistance = 310;
             this._mSplitter1.SplitterWidth = 5;
             this._mSplitter1.TabIndex = 0;
             // 
@@ -128,7 +135,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(237, 663);
+            this.tabControl1.Size = new System.Drawing.Size(310, 392);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -137,7 +144,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(229, 635);
+            this.tabPage1.Size = new System.Drawing.Size(302, 364);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Properties";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -148,7 +155,7 @@
             this._mTaskGrid.LineColor = System.Drawing.SystemColors.ControlDark;
             this._mTaskGrid.Location = new System.Drawing.Point(3, 3);
             this._mTaskGrid.Name = "_mTaskGrid";
-            this._mTaskGrid.Size = new System.Drawing.Size(223, 629);
+            this._mTaskGrid.Size = new System.Drawing.Size(296, 358);
             this._mTaskGrid.TabIndex = 2;
             // 
             // tabPage2
@@ -159,7 +166,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(229, 638);
+            this.tabPage2.Size = new System.Drawing.Size(302, 366);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Timeline";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -170,7 +177,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(3, 106);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(223, 52);
+            this.groupBox3.Size = new System.Drawing.Size(296, 52);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Scroll To Date";
@@ -180,7 +187,7 @@
             this._mScrollDatePicker.Dock = System.Windows.Forms.DockStyle.Top;
             this._mScrollDatePicker.Location = new System.Drawing.Point(3, 19);
             this._mScrollDatePicker.Name = "_mScrollDatePicker";
-            this._mScrollDatePicker.Size = new System.Drawing.Size(217, 23);
+            this._mScrollDatePicker.Size = new System.Drawing.Size(290, 23);
             this._mScrollDatePicker.TabIndex = 1;
             this._mScrollDatePicker.ValueChanged += new System.EventHandler(this._mScrollDatePicker_ValueChanged);
             // 
@@ -190,7 +197,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(3, 54);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(223, 52);
+            this.groupBox2.Size = new System.Drawing.Size(296, 52);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Date Now";
@@ -200,7 +207,7 @@
             this._mNowDatePicker.Dock = System.Windows.Forms.DockStyle.Top;
             this._mNowDatePicker.Location = new System.Drawing.Point(3, 19);
             this._mNowDatePicker.Name = "_mNowDatePicker";
-            this._mNowDatePicker.Size = new System.Drawing.Size(217, 23);
+            this._mNowDatePicker.Size = new System.Drawing.Size(290, 23);
             this._mNowDatePicker.TabIndex = 1;
             this._mNowDatePicker.ValueChanged += new System.EventHandler(this._mNowDatePicker_ValueChanged);
             // 
@@ -210,7 +217,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(223, 51);
+            this.groupBox1.Size = new System.Drawing.Size(296, 51);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Project Start Date";
@@ -220,7 +227,7 @@
             this._mStartDatePicker.Dock = System.Windows.Forms.DockStyle.Top;
             this._mStartDatePicker.Location = new System.Drawing.Point(3, 19);
             this._mStartDatePicker.Name = "_mStartDatePicker";
-            this._mStartDatePicker.Size = new System.Drawing.Size(217, 23);
+            this._mStartDatePicker.Size = new System.Drawing.Size(290, 23);
             this._mStartDatePicker.TabIndex = 0;
             this._mStartDatePicker.ValueChanged += new System.EventHandler(this._mDateTimePicker_ValueChanged);
             // 
@@ -230,7 +237,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(229, 638);
+            this.tabPage3.Size = new System.Drawing.Size(302, 366);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Resources";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -242,7 +249,7 @@
             this._mResourceGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this._mResourceGrid.Location = new System.Drawing.Point(3, 3);
             this._mResourceGrid.Name = "_mResourceGrid";
-            this._mResourceGrid.Size = new System.Drawing.Size(223, 632);
+            this._mResourceGrid.Size = new System.Drawing.Size(296, 360);
             this._mResourceGrid.TabIndex = 0;
             this._mResourceGrid.UseCompatibleStateImageBehavior = false;
             this._mResourceGrid.View = System.Windows.Forms.View.List;
@@ -258,7 +265,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(229, 638);
+            this.tabPage4.Size = new System.Drawing.Size(302, 366);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Task List";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -269,7 +276,7 @@
             this.TaskGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TaskGridView.Location = new System.Drawing.Point(3, 18);
             this.TaskGridView.Name = "TaskGridView";
-            this.TaskGridView.Size = new System.Drawing.Size(223, 617);
+            this.TaskGridView.Size = new System.Drawing.Size(296, 345);
             this.TaskGridView.TabIndex = 0;
             this.TaskGridView.SelectionChanged += new System.EventHandler(this._mTaskGridView_SelectionChanged);
             // 
@@ -283,6 +290,33 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Select a row to scroll to task";
             // 
+            // gridChartSpliter
+            // 
+            this.gridChartSpliter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridChartSpliter.Location = new System.Drawing.Point(0, 0);
+            this.gridChartSpliter.Name = "gridChartSpliter";
+            // 
+            // gridChartSpliter.Panel1
+            // 
+            this.gridChartSpliter.Panel1.Controls.Add(this.grid);
+            // 
+            // gridChartSpliter.Panel2
+            // 
+            this.gridChartSpliter.Panel2.Controls.Add(this._mChart);
+            this.gridChartSpliter.Size = new System.Drawing.Size(881, 392);
+            this.gridChartSpliter.SplitterDistance = 373;
+            this.gridChartSpliter.TabIndex = 5;
+            // 
+            // grid
+            // 
+            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid.Location = new System.Drawing.Point(0, 0);
+            this.grid.Name = "grid";
+            this.grid.RowTemplate.Height = 23;
+            this.grid.Size = new System.Drawing.Size(373, 392);
+            this.grid.TabIndex = 0;
+            // 
             // _mChart
             // 
             this._mChart.AllowTaskDragDrop = false;
@@ -292,7 +326,7 @@
             this._mChart.Margin = new System.Windows.Forms.Padding(0);
             this._mChart.Name = "_mChart";
             this._mChart.Padding = new System.Windows.Forms.Padding(5);
-            this._mChart.Size = new System.Drawing.Size(587, 663);
+            this._mChart.Size = new System.Drawing.Size(504, 392);
             this._mChart.TabIndex = 4;
             // 
             // menuStrip1
@@ -303,7 +337,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(829, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1196, 25);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -548,23 +582,23 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 688);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 417);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(829, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1196, 22);
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // lblStatus
             // 
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(814, 17);
+            this.lblStatus.Size = new System.Drawing.Size(1181, 17);
             this.lblStatus.Spring = true;
             // 
             // ExampleFull
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 710);
+            this.ClientSize = new System.Drawing.Size(1196, 439);
             this.Controls.Add(this._mSplitter1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -585,6 +619,11 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TaskGridView)).EndInit();
+            this.gridChartSpliter.Panel1.ResumeLayout(false);
+            this.gridChartSpliter.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridChartSpliter)).EndInit();
+            this.gridChartSpliter.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -649,6 +688,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnuFileImgPrint50;
         private System.Windows.Forms.ToolStripMenuItem mnuFileImgPrint10;
         private System.Windows.Forms.ToolStripMenuItem mnuViewHours;
+        private System.Windows.Forms.SplitContainer gridChartSpliter;
+        private System.Windows.Forms.DataGridView grid;
     }
 }
 

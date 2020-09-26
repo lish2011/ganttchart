@@ -128,7 +128,18 @@ namespace Braincase.GanttChart
             _mChart.TimeResolution = TimeResolution.Day; // Set the chart to display in days in header
 
             // Init the rest of the UI
-            _InitExampleUI();            
+            _InitExampleUI();
+
+            //--------------------绑定到datagridview
+            grid.DataSource = new BindingSource(_mManager.Tasks, null);
+            _mChart.ViewPortScroll += _mChart_ViewPortScroll;
+            
+        }
+
+        private void _mChart_ViewPortScroll(object sender, ScrollEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine($"{e.NewValue}");
+            //throw new NotImplementedException();
         }
 
         void _mChart_TaskSelected(object sender, TaskMouseEventArgs e)

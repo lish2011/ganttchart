@@ -180,6 +180,7 @@ namespace Braincase.GanttChart
     /// </summary>
     class ControlViewport : IViewport
     {
+        public event ScrollEventHandler Scroll;//=> _mvScroll.Scroll;
         /// <summary>
         /// Construct a Viewport
         /// </summary>
@@ -197,14 +198,24 @@ namespace Braincase.GanttChart
             _mDevice.Controls.Add(_mvScroll);
             _mDevice.Controls.Add(_mScrollHolePatch);
 
-            _mhScroll.Scroll += (s, e) => X = e.NewValue;
+            //_mhScroll.Scroll += (s, e) => X = e.NewValue;
             _mvScroll.Scroll += (s, e) => Y = e.NewValue;
+            //_mvScroll.Scroll += _mvScroll_Scroll;     //-----引出接口，把_mvScroll 滚动事件传到上层，使上层程序处理滚动事件
             _mDevice.Resize += (s, e) => this.Resize();
             _mDevice.MouseWheel += (s, e) => Y -= e.Delta > 0 ? WheelDelta : -WheelDelta;
             WheelDelta = _mvScroll.LargeChange;
 
             _RecalculateMatrix();
             _RecalculateRectangle();
+        }
+
+        //-----引出接口，把_mvScroll 滚动事件传到上层，使上层程序处理滚动事件
+        private void _mvScroll_Scroll(object sender, ScrollEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine($"_mvScroll_Scroll_{e.NewValue}");
+            Y = e.NewValue;
+            Scroll.Invoke(sender, e);
+            
         }
 
         /// <summary>

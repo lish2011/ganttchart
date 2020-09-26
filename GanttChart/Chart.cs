@@ -43,6 +43,8 @@ namespace Braincase.GanttChart
     {
         #region Public Methods
 
+        public event ScrollEventHandler ViewPortScroll;
+
         /// <summary>
         /// Construct a gantt chart
         /// </summary>
@@ -60,7 +62,13 @@ namespace Braincase.GanttChart
             MinorWidth = 20;
             TimeResolution = TimeResolution.Day;
             this.DoubleBuffered = true;
-            _mViewport = new ControlViewport(this) { WheelDelta = BarSpacing };
+            var tt = new ControlViewport(this) { WheelDelta = BarSpacing };
+            _mViewport = tt;
+            //_mViewport = new ControlViewport(this) { WheelDelta = BarSpacing };
+            //this.ViewPortScroll += (_mViewport as ControlViewport).Scroll;
+            //(_mViewport as ControlViewport).Scroll += ViewPortScroll;
+            //ViewPortScroll = 
+            tt.Scroll += Tt_Scroll; 
             AllowTaskDragDrop = true;
             ShowRelations = true;
             ShowSlack = false;
@@ -90,6 +98,12 @@ namespace Braincase.GanttChart
                 GradientLight = SystemColors.ButtonHighlight,
                 GradientDark = SystemColors.ButtonFace
             };
+        }
+
+        private void Tt_Scroll(object sender, ScrollEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine($"Tt_Scroll_{e.NewValue}");
+            ViewPortScroll.Invoke(sender, e);
         }
 
         /// <summary>
