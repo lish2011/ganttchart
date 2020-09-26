@@ -68,10 +68,10 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuViewDays = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuViewWeeks = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuViewDays = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuViewHours = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuViewRelationships = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuViewSlack = new System.Windows.Forms.ToolStripMenuItem();
@@ -102,7 +102,7 @@
             // 
             this._mSplitter1.Dock = System.Windows.Forms.DockStyle.Fill;
             this._mSplitter1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this._mSplitter1.Location = new System.Drawing.Point(0, 24);
+            this._mSplitter1.Location = new System.Drawing.Point(0, 25);
             this._mSplitter1.Name = "_mSplitter1";
             // 
             // _mSplitter1.Panel1
@@ -113,7 +113,7 @@
             // 
             this._mSplitter1.Panel2.AutoScroll = true;
             this._mSplitter1.Panel2.Controls.Add(this._mChart);
-            this._mSplitter1.Size = new System.Drawing.Size(829, 664);
+            this._mSplitter1.Size = new System.Drawing.Size(829, 663);
             this._mSplitter1.SplitterDistance = 237;
             this._mSplitter1.SplitterWidth = 5;
             this._mSplitter1.TabIndex = 0;
@@ -128,7 +128,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(237, 664);
+            this.tabControl1.Size = new System.Drawing.Size(237, 663);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -137,7 +137,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(229, 636);
+            this.tabPage1.Size = new System.Drawing.Size(229, 635);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Properties";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -148,7 +148,7 @@
             this._mTaskGrid.LineColor = System.Drawing.SystemColors.ControlDark;
             this._mTaskGrid.Location = new System.Drawing.Point(3, 3);
             this._mTaskGrid.Name = "_mTaskGrid";
-            this._mTaskGrid.Size = new System.Drawing.Size(223, 630);
+            this._mTaskGrid.Size = new System.Drawing.Size(223, 629);
             this._mTaskGrid.TabIndex = 2;
             // 
             // tabPage2
@@ -292,7 +292,7 @@
             this._mChart.Margin = new System.Windows.Forms.Padding(0);
             this._mChart.Name = "_mChart";
             this._mChart.Padding = new System.Windows.Forms.Padding(5);
-            this._mChart.Size = new System.Drawing.Size(587, 664);
+            this._mChart.Size = new System.Drawing.Size(587, 663);
             this._mChart.TabIndex = 4;
             // 
             // menuStrip1
@@ -303,7 +303,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(829, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(829, 25);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -320,39 +320,39 @@
             this.toolStripMenuItem1,
             this.mnuFileExit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // mnuFileNew
             // 
             this.mnuFileNew.Name = "mnuFileNew";
-            this.mnuFileNew.Size = new System.Drawing.Size(365, 22);
+            this.mnuFileNew.Size = new System.Drawing.Size(395, 22);
             this.mnuFileNew.Text = "New";
             this.mnuFileNew.Click += new System.EventHandler(this.mnuFileNew_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(362, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(392, 6);
             // 
             // mnuFileSave
             // 
             this.mnuFileSave.Name = "mnuFileSave";
-            this.mnuFileSave.Size = new System.Drawing.Size(365, 22);
+            this.mnuFileSave.Size = new System.Drawing.Size(395, 22);
             this.mnuFileSave.Text = "Save...";
             this.mnuFileSave.Click += new System.EventHandler(this.mnuFileSave_Click);
             // 
             // mnuFileOpen
             // 
             this.mnuFileOpen.Name = "mnuFileOpen";
-            this.mnuFileOpen.Size = new System.Drawing.Size(365, 22);
+            this.mnuFileOpen.Size = new System.Drawing.Size(395, 22);
             this.mnuFileOpen.Text = "Open...";
             this.mnuFileOpen.Click += new System.EventHandler(this.mnuFileOpen_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(362, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(392, 6);
             // 
             // mnuFilePrint
             // 
@@ -365,49 +365,49 @@
             this.mnuFilePrint25,
             this.mnuFilePrint10});
             this.mnuFilePrint.Name = "mnuFilePrint";
-            this.mnuFilePrint.Size = new System.Drawing.Size(365, 22);
+            this.mnuFilePrint.Size = new System.Drawing.Size(395, 22);
             this.mnuFilePrint.Text = "Print Document (Printing to PDF is advised for this test)";
             // 
             // mnuFilePrint200
             // 
             this.mnuFilePrint200.Name = "mnuFilePrint200";
-            this.mnuFilePrint200.Size = new System.Drawing.Size(102, 22);
+            this.mnuFilePrint200.Size = new System.Drawing.Size(108, 22);
             this.mnuFilePrint200.Text = "200%";
             // 
             // mnuFilePrint150
             // 
             this.mnuFilePrint150.Name = "mnuFilePrint150";
-            this.mnuFilePrint150.Size = new System.Drawing.Size(102, 22);
+            this.mnuFilePrint150.Size = new System.Drawing.Size(108, 22);
             this.mnuFilePrint150.Text = "150%";
             // 
             // mnuFilePrint100
             // 
             this.mnuFilePrint100.Name = "mnuFilePrint100";
-            this.mnuFilePrint100.Size = new System.Drawing.Size(102, 22);
+            this.mnuFilePrint100.Size = new System.Drawing.Size(108, 22);
             this.mnuFilePrint100.Text = "100%";
             // 
             // mnuFilePrint80
             // 
             this.mnuFilePrint80.Name = "mnuFilePrint80";
-            this.mnuFilePrint80.Size = new System.Drawing.Size(102, 22);
+            this.mnuFilePrint80.Size = new System.Drawing.Size(108, 22);
             this.mnuFilePrint80.Text = "80%";
             // 
             // mnuFilePrint50
             // 
             this.mnuFilePrint50.Name = "mnuFilePrint50";
-            this.mnuFilePrint50.Size = new System.Drawing.Size(102, 22);
+            this.mnuFilePrint50.Size = new System.Drawing.Size(108, 22);
             this.mnuFilePrint50.Text = "50%";
             // 
             // mnuFilePrint25
             // 
             this.mnuFilePrint25.Name = "mnuFilePrint25";
-            this.mnuFilePrint25.Size = new System.Drawing.Size(102, 22);
+            this.mnuFilePrint25.Size = new System.Drawing.Size(108, 22);
             this.mnuFilePrint25.Text = "25%";
             // 
             // mnuFilePrint10
             // 
             this.mnuFilePrint10.Name = "mnuFilePrint10";
-            this.mnuFilePrint10.Size = new System.Drawing.Size(102, 22);
+            this.mnuFilePrint10.Size = new System.Drawing.Size(108, 22);
             this.mnuFilePrint10.Text = "10%";
             // 
             // printImageToolStripMenuItem
@@ -417,36 +417,36 @@
             this.mnuFileImgPrint50,
             this.mnuFileImgPrint10});
             this.printImageToolStripMenuItem.Name = "printImageToolStripMenuItem";
-            this.printImageToolStripMenuItem.Size = new System.Drawing.Size(365, 22);
+            this.printImageToolStripMenuItem.Size = new System.Drawing.Size(395, 22);
             this.printImageToolStripMenuItem.Text = "Print Image (Warning: Large file sizes)";
             // 
             // mnuFileImgPrint100
             // 
             this.mnuFileImgPrint100.Name = "mnuFileImgPrint100";
-            this.mnuFileImgPrint100.Size = new System.Drawing.Size(152, 22);
+            this.mnuFileImgPrint100.Size = new System.Drawing.Size(165, 22);
             this.mnuFileImgPrint100.Text = "100% (707 MB)";
             // 
             // mnuFileImgPrint50
             // 
             this.mnuFileImgPrint50.Name = "mnuFileImgPrint50";
-            this.mnuFileImgPrint50.Size = new System.Drawing.Size(152, 22);
+            this.mnuFileImgPrint50.Size = new System.Drawing.Size(165, 22);
             this.mnuFileImgPrint50.Text = "50%";
             // 
             // mnuFileImgPrint10
             // 
             this.mnuFileImgPrint10.Name = "mnuFileImgPrint10";
-            this.mnuFileImgPrint10.Size = new System.Drawing.Size(152, 22);
+            this.mnuFileImgPrint10.Size = new System.Drawing.Size(165, 22);
             this.mnuFileImgPrint10.Text = "10%";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(362, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(392, 6);
             // 
             // mnuFileExit
             // 
             this.mnuFileExit.Name = "mnuFileExit";
-            this.mnuFileExit.Size = new System.Drawing.Size(365, 22);
+            this.mnuFileExit.Size = new System.Drawing.Size(395, 22);
             this.mnuFileExit.Text = "Exit";
             this.mnuFileExit.Click += new System.EventHandler(this.mnuFileExit_Click);
             // 
@@ -463,69 +463,69 @@
             this.toolStripMenuItem6,
             this.mnuViewIntructions});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
             this.viewToolStripMenuItem.Text = "View";
+            // 
+            // mnuViewWeeks
+            // 
+            this.mnuViewWeeks.Name = "mnuViewWeeks";
+            this.mnuViewWeeks.Size = new System.Drawing.Size(153, 22);
+            this.mnuViewWeeks.Text = "Weeks";
+            this.mnuViewWeeks.Click += new System.EventHandler(this.mnuViewWeeks_Click);
             // 
             // mnuViewDays
             // 
             this.mnuViewDays.Checked = true;
             this.mnuViewDays.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mnuViewDays.Name = "mnuViewDays";
-            this.mnuViewDays.Size = new System.Drawing.Size(152, 22);
+            this.mnuViewDays.Size = new System.Drawing.Size(153, 22);
             this.mnuViewDays.Text = "Days";
             this.mnuViewDays.Click += new System.EventHandler(this.mnuViewDays_Click);
-            // 
-            // mnuViewWeeks
-            // 
-            this.mnuViewWeeks.Name = "mnuViewWeeks";
-            this.mnuViewWeeks.Size = new System.Drawing.Size(152, 22);
-            this.mnuViewWeeks.Text = "Weeks";
-            this.mnuViewWeeks.Click += new System.EventHandler(this.mnuViewWeeks_Click);
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(149, 6);
             // 
             // mnuViewHours
             // 
             this.mnuViewHours.Name = "mnuViewHours";
-            this.mnuViewHours.Size = new System.Drawing.Size(152, 22);
+            this.mnuViewHours.Size = new System.Drawing.Size(153, 22);
             this.mnuViewHours.Text = "Hours";
             this.mnuViewHours.Click += new System.EventHandler(this.mnuViewHours_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(150, 6);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(150, 6);
             // 
             // mnuViewRelationships
             // 
             this.mnuViewRelationships.Checked = true;
             this.mnuViewRelationships.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mnuViewRelationships.Name = "mnuViewRelationships";
-            this.mnuViewRelationships.Size = new System.Drawing.Size(152, 22);
+            this.mnuViewRelationships.Size = new System.Drawing.Size(153, 22);
             this.mnuViewRelationships.Text = "Relationships";
             this.mnuViewRelationships.Click += new System.EventHandler(this.mnuViewRelationships_Click);
             // 
             // mnuViewSlack
             // 
             this.mnuViewSlack.Name = "mnuViewSlack";
-            this.mnuViewSlack.Size = new System.Drawing.Size(152, 22);
+            this.mnuViewSlack.Size = new System.Drawing.Size(153, 22);
             this.mnuViewSlack.Text = "Slack";
             this.mnuViewSlack.Click += new System.EventHandler(this.mnuViewSlack_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(150, 6);
             // 
             // mnuViewIntructions
             // 
             this.mnuViewIntructions.Checked = true;
             this.mnuViewIntructions.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mnuViewIntructions.Name = "mnuViewIntructions";
-            this.mnuViewIntructions.Size = new System.Drawing.Size(152, 22);
+            this.mnuViewIntructions.Size = new System.Drawing.Size(153, 22);
             this.mnuViewIntructions.Text = "Instructions";
             this.mnuViewIntructions.Click += new System.EventHandler(this.mnuViewIntructions_Click);
             // 
@@ -534,13 +534,13 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuHelpAbout});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // mnuHelpAbout
             // 
             this.mnuHelpAbout.Name = "mnuHelpAbout";
-            this.mnuHelpAbout.Size = new System.Drawing.Size(171, 22);
+            this.mnuHelpAbout.Size = new System.Drawing.Size(181, 22);
             this.mnuHelpAbout.Text = "About Gantt Chart";
             this.mnuHelpAbout.Click += new System.EventHandler(this.mnuHelpAbout_Click);
             // 
