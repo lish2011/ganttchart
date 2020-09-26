@@ -132,9 +132,42 @@ namespace Braincase.GanttChart
 
             //--------------------绑定到datagridview
             grid.DataSource = new BindingSource(_mManager.Tasks, null);
-            _mChart.ViewPortScroll += _mChart_ViewPortScroll;
-            
+            grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            grid.ColumnHeadersHeight = _mChart.HeaderOneHeight + _mChart.HeaderTwoHeight;
+            grid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            grid.RowTemplate.Height = _mChart.BarSpacing;
+            grid.ScrollBars = ScrollBars.Both;
+            grid.Scroll += Grid_Scroll;
+            _mChart.Port._mvScroll.Scroll += _mvScroll_Scroll;
+
         }
+
+        private void _mvScroll_Scroll(object sender, ScrollEventArgs e)
+        {
+            grid.FirstDisplayedScrollingRowIndex = _mChart.FisrtDisplayedRow;
+            //_mChart.Invalidate();
+        }
+
+        private void Grid_Scroll(object sender, ScrollEventArgs e)
+        {
+            int tarIndex = grid.FirstDisplayedScrollingRowIndex;
+            //_mManager.Tasks[0]
+            _mChart.TryGetTask(tarIndex, out Task task);
+            _mChart.ScrollTo(task);
+        }
+
+        //Chart.cs line319代码，这里的代码有个bug, 
+        //public bool TryGetTask(int row, out Task task)
+        //{
+        //    task = null;
+        //    if (row > 0 && row < _mProject.Tasks.Count())
+        //    {
+        //        task = _mChartTaskRects.ElementAtOrDefault(row - 1).Key;
+        //        return true;
+        //    }
+        //    return false;
+        //}
+        //row 应该可以等于0， 故代码改成如下结构
 
         private void _mChart_ViewPortScroll(object sender, ScrollEventArgs e)
         {

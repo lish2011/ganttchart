@@ -43,7 +43,8 @@ namespace Braincase.GanttChart
     {
         #region Public Methods
 
-        public event ScrollEventHandler ViewPortScroll;
+        //public event ScrollEventHandler ViewPortScroll;
+        public ControlViewport Port;        //--------LS
 
         /// <summary>
         /// Construct a gantt chart
@@ -62,13 +63,15 @@ namespace Braincase.GanttChart
             MinorWidth = 20;
             TimeResolution = TimeResolution.Day;
             this.DoubleBuffered = true;
-            var tt = new ControlViewport(this) { WheelDelta = BarSpacing };
-            _mViewport = tt;
-            //_mViewport = new ControlViewport(this) { WheelDelta = BarSpacing };
+            Port = new ControlViewport(this) { WheelDelta = BarSpacing };
+            _mViewport = Port;
+            //_mViewport = new ControlViewport(this) { WheelDelta = BarSpacing };     //滚动一次的距离为行高，这样确保每次都是滚动若干行。
             //this.ViewPortScroll += (_mViewport as ControlViewport).Scroll;
             //(_mViewport as ControlViewport).Scroll += ViewPortScroll;
             //ViewPortScroll = 
-            tt.Scroll += Tt_Scroll; 
+            //tt.Scroll += Tt_Scroll;
+            //tt._mvScroll.Scroll += _mvScroll_Scroll;            //------------LS
+
             AllowTaskDragDrop = true;
             ShowRelations = true;
             ShowSlack = false;
@@ -103,7 +106,7 @@ namespace Braincase.GanttChart
         private void Tt_Scroll(object sender, ScrollEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine($"Tt_Scroll_{e.NewValue}");
-            ViewPortScroll.Invoke(sender, e);
+            //ViewPortScroll.Invoke(sender, e);
         }
 
         /// <summary>
@@ -319,13 +322,33 @@ namespace Braincase.GanttChart
         public bool TryGetTask(int row, out Task task)
         {
             task = null;
-            if (row > 0 && row < _mProject.Tasks.Count())
+            if (row >= 0 && row < _mProject.Tasks.Count())
             {
-                task = _mChartTaskRects.ElementAtOrDefault(row - 1).Key;
+                task = _mChartTaskRects.ElementAtOrDefault(row).Key;
                 return true;
             }
             return false;
         }
+
+        // 原来的代码有bug，上面为ls改过的代码
+        //public bool TryGetTask(int row, out Task task)
+        //{
+        //    task = null;
+        //    if (row > 0 && row < _mProject.Tasks.Count())
+        //    {
+        //        task = _mChartTaskRects.ElementAtOrDefault(row - 1).Key;
+        //        return true;
+        //    }
+        //    return false;
+        //}
+
+        public int FisrtDisplayedRow
+        {
+            get
+            {
+                return _DeviceCoordToChartRow(_mViewport.Y); ;
+            }
+        }        
 
         /// <summary>
         /// Initialize this Chart with a Project
@@ -1595,7 +1618,7 @@ namespace Braincase.GanttChart
         }
 
         ProjectManager<Task, object> _mProject = null; // The project to be visualised / rendered as a Gantt Chart
-        IViewport _mViewport = null;
+        IViewport _mViewport = null;  //------------LS
         Task _mDraggedTask = null; // The dragged source Task
         Point _mDragTaskLastLocation = Point.Empty; // Record the task dragging mouse offset
         Point _mDragTaskStartLocation = Point.Empty;

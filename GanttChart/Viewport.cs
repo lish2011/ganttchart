@@ -178,9 +178,9 @@ namespace Braincase.GanttChart
     /// <summary>
     /// An IViewport that is placed over a world coordinate system and provides methods to transform between world and view coordinates
     /// </summary>
-    class ControlViewport : IViewport
+    public class ControlViewport : IViewport
     {
-        public event ScrollEventHandler Scroll;//=> _mvScroll.Scroll;
+        //public event ScrollEventHandler Scroll;//=> _mvScroll.Scroll;
         /// <summary>
         /// Construct a Viewport
         /// </summary>
@@ -198,9 +198,10 @@ namespace Braincase.GanttChart
             _mDevice.Controls.Add(_mvScroll);
             _mDevice.Controls.Add(_mScrollHolePatch);
 
-            //_mhScroll.Scroll += (s, e) => X = e.NewValue;
+            _mhScroll.Scroll += (s, e) => X = e.NewValue;
             _mvScroll.Scroll += (s, e) => Y = e.NewValue;
             //_mvScroll.Scroll += _mvScroll_Scroll;     //-----引出接口，把_mvScroll 滚动事件传到上层，使上层程序处理滚动事件
+            //_mvScroll.Scroll += new ScrollEventHandler(_mvScroll_Scroll);
             _mDevice.Resize += (s, e) => this.Resize();
             _mDevice.MouseWheel += (s, e) => Y -= e.Delta > 0 ? WheelDelta : -WheelDelta;
             WheelDelta = _mvScroll.LargeChange;
@@ -214,7 +215,7 @@ namespace Braincase.GanttChart
         {
             System.Diagnostics.Debug.WriteLine($"_mvScroll_Scroll_{e.NewValue}");
             Y = e.NewValue;
-            Scroll.Invoke(sender, e);
+            //Scroll.Invoke(sender, e);
             
         }
 
@@ -410,7 +411,7 @@ namespace Braincase.GanttChart
 
         Control _mDevice;
         HScrollBar _mhScroll;
-        VScrollBar _mvScroll;
+        public VScrollBar _mvScroll;     //-------LS
         UserControl _mScrollHolePatch;
         RectangleF _mRectangle = RectangleF.Empty;
         Matrix _mMatrix = new Matrix();
