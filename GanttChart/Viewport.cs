@@ -175,6 +175,8 @@ namespace Braincase.GanttChart
         float _mScale = 1.0f;
     }
 
+
+    //public event EventHandler<TaskMouseEventArgs> TaskMouseOut = null;
     /// <summary>
     /// An IViewport that is placed over a world coordinate system and provides methods to transform between world and view coordinates
     /// </summary>

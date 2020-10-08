@@ -46,7 +46,6 @@
             this.TaskGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.gridChartSpliter = new System.Windows.Forms.SplitContainer();
-            this.grid = new System.Windows.Forms.DataGridView();
             this._mChart = new Braincase.GanttChart.Chart();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,6 +82,7 @@
             this.mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.grid = new Braincase.GanttChart.MyDataGridView();
             ((System.ComponentModel.ISupportInitialize)(this._mSplitter1)).BeginInit();
             this._mSplitter1.Panel1.SuspendLayout();
             this._mSplitter1.Panel2.SuspendLayout();
@@ -100,9 +100,9 @@
             this.gridChartSpliter.Panel1.SuspendLayout();
             this.gridChartSpliter.Panel2.SuspendLayout();
             this.gridChartSpliter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
             // _mSplitter1
@@ -306,16 +306,6 @@
             this.gridChartSpliter.Size = new System.Drawing.Size(881, 392);
             this.gridChartSpliter.SplitterDistance = 373;
             this.gridChartSpliter.TabIndex = 5;
-            // 
-            // grid
-            // 
-            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grid.Location = new System.Drawing.Point(0, 0);
-            this.grid.Name = "grid";
-            this.grid.RowTemplate.Height = 23;
-            this.grid.Size = new System.Drawing.Size(373, 392);
-            this.grid.TabIndex = 0;
             // 
             // _mChart
             // 
@@ -594,6 +584,16 @@
             this.lblStatus.Size = new System.Drawing.Size(1181, 17);
             this.lblStatus.Spring = true;
             // 
+            // grid
+            // 
+            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid.Location = new System.Drawing.Point(0, 0);
+            this.grid.Name = "grid";
+            this.grid.RowTemplate.Height = 23;
+            this.grid.Size = new System.Drawing.Size(373, 392);
+            this.grid.TabIndex = 0;
+            // 
             // ExampleFull
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -623,11 +623,11 @@
             this.gridChartSpliter.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridChartSpliter)).EndInit();
             this.gridChartSpliter.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -689,7 +689,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuFileImgPrint10;
         private System.Windows.Forms.ToolStripMenuItem mnuViewHours;
         private System.Windows.Forms.SplitContainer gridChartSpliter;
-        private System.Windows.Forms.DataGridView grid;
+        private MyDataGridView grid;
     }
 }
 

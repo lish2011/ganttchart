@@ -346,7 +346,28 @@ namespace Braincase.GanttChart
         {
             get
             {
-                return _DeviceCoordToChartRow(_mViewport.Y); ;
+                if (TryGetTask(_ChartCoordToChartRow(_mViewport.Y), out Task task))
+                {
+                    if (TryGetRow(task, out int row))
+                    {
+                        return row;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
+                }
+                else
+                {
+                    return -1;
+                }                
+            }
+            set
+            {
+                if (TryGetTask(value, out Task task))
+                {
+                    this.ScrollTo(task);
+                }                
             }
         }        
 

@@ -86,6 +86,9 @@
     <Compile Include="ExampleFull.Designer.cs">
       <DependentUpon>ExampleFull.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ExampleSimple.resx">

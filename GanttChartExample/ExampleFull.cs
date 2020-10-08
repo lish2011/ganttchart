@@ -137,23 +137,76 @@ namespace Braincase.GanttChart
             grid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             grid.RowTemplate.Height = _mChart.BarSpacing;
             grid.ScrollBars = ScrollBars.Both;
+            //grid.ScrollBars = ScrollBars.Horizontal;
             grid.Scroll += Grid_Scroll;
+            grid.ScrollValueChanged += Grid_ScrollValueChanged;
             _mChart.Port._mvScroll.Scroll += _mvScroll_Scroll;
-
+            this.gridChartSpliter.Panel2.MouseWheel += Panel2_MouseWheel;
+            //this.gridChartSpliter.Click += GridChartSpliter_Click;
+            //this.gridChartSpliter.Panel2.Click += Panel2_Click;
+            this._mChart.Resize += (s, e) => this.Resize();
         }
 
+        private void Grid_ScrollValueChanged(object sender, EventArgs e)
+        {
+            _mChart.FisrtDisplayedRow = grid.FirstDisplayedScrollingRowIndex;
+            if (grid.FirstDisplayedScrollingRowIndex != _mChart.FisrtDisplayedRow)
+            {
+                _mChart.FisrtDisplayedRow = grid.FirstDisplayedScrollingRowIndex;
+            }
+            System.Diagnostics.Debug.WriteLine($"{grid.FirstDisplayedScrollingRowIndex}_{_mChart.FisrtDisplayedRow}");
+            //int tarIndex = grid.FirstDisplayedScrollingRowIndex;
+            ////_mManager.Tasks[0]
+            //_mChart.TryGetTask(tarIndex, out Task task);
+            //_mChart.ScrollTo(task);
+            
+        }
+
+        //在Chart面板滚动滚轮
+        private void Panel2_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta > 0)
+            {                
+                if (grid.VScrollValue > grid.VScrollMin)
+                {
+                    grid.FirstDisplayedScrollingRowIndex--;
+                    System.Diagnostics.Debug.WriteLine($"Panel2_MouseWheel <<<<<0");
+                }
+            }
+            else
+            {                
+                if (grid.VScrollValue < grid.VScrollMaxValue)
+                {                                        
+                    grid.FirstDisplayedScrollingRowIndex++;
+                    System.Diagnostics.Debug.WriteLine($"Panel2_MouseWheel >>>>>0");
+                }
+            }
+            //_mChart.FisrtDisplayedRow = grid.FirstDisplayedScrollingRowIndex;
+            System.Diagnostics.Debug.WriteLine($"{grid.VScrollValue},{grid.VScrollMaxValue}, {grid.VScrollMin}");            
+            System.Diagnostics.Debug.WriteLine($"{grid.FirstDisplayedScrollingRowIndex}_{_mChart.FisrtDisplayedRow}");
+        }
+
+        //拖动垂直滚动条
         private void _mvScroll_Scroll(object sender, ScrollEventArgs e)
         {
             grid.FirstDisplayedScrollingRowIndex = _mChart.FisrtDisplayedRow;
             //_mChart.Invalidate();
+            System.Diagnostics.Debug.WriteLine($"{grid.FirstDisplayedScrollingRowIndex},_mvScroll_Scroll-----");
         }
 
         private void Grid_Scroll(object sender, ScrollEventArgs e)
         {
-            int tarIndex = grid.FirstDisplayedScrollingRowIndex;
-            //_mManager.Tasks[0]
-            _mChart.TryGetTask(tarIndex, out Task task);
-            _mChart.ScrollTo(task);
+            _mChart.FisrtDisplayedRow = grid.FirstDisplayedScrollingRowIndex;
+            //int tarIndex = grid.FirstDisplayedScrollingRowIndex;
+            //_mChart.TryGetTask(tarIndex, out Task task);
+            //_mChart.ScrollTo(task);
+            System.Diagnostics.Debug.WriteLine($"{grid.FirstDisplayedScrollingRowIndex},Grid_Scroll+++++");
+        }
+
+        public new void Resize()
+        {
+            this._mChart.VerticalScroll.Minimum = grid.VScrollMin;
+            this._mChart.VerticalScroll.Maximum = grid.VScrollMaxValue;
         }
 
         //Chart.cs line319代码，这里的代码有个bug, 
