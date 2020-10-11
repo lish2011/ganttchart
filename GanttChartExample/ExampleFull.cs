@@ -145,7 +145,117 @@ namespace Braincase.GanttChart
             //this.gridChartSpliter.Click += GridChartSpliter_Click;
             //this.gridChartSpliter.Panel2.Click += Panel2_Click;
             this._mChart.Resize += (s, e) => this.Resize();
+            SetGrid();
         }
+
+        //-----------------------------------
+        public void TestException()
+        {
+            int i = 1;
+            int j = 0;
+            try
+            {
+                var x = i / j;
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+            }
+        }
+
+        private ComboBox cmb_Temp = new ComboBox();
+        private void SetGrid()
+        {
+            // 绑定性别下拉列表框
+            BindSex();
+            //绑定数据表
+            BindData();
+            // 设置下拉列表框不可见
+            cmb_Temp.Visible = false;
+            // 添加下拉列表框事件
+            cmb_Temp.SelectedIndexChanged += new EventHandler(cmb_Temp_SelectedIndexChanged);
+            // 将下拉列表框加入到DataGridView控件中
+            this.grid.Controls.Add(cmb_Temp);
+
+        }
+
+        private void cmb_Temp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BindSex()
+        {
+            DataTable dtSex = new DataTable();
+            dtSex.Columns.Add("Value");
+            dtSex.Columns.Add("Name");
+            DataRow drSex;
+            drSex = dtSex.NewRow();
+            drSex[0] = "0";
+            drSex[1] = "湖北";
+            dtSex.Rows.Add(drSex);
+            drSex = dtSex.NewRow();
+            drSex[0] = "1";
+            drSex[1] = "湖南";
+            dtSex.Rows.Add(drSex);
+
+            drSex = dtSex.NewRow();
+            drSex[0] = "2";
+            drSex[1] = "广东";
+            dtSex.Rows.Add(drSex);
+
+            drSex = dtSex.NewRow();
+            drSex[0] = "3";
+            drSex[1] = "福建";
+            dtSex.Rows.Add(drSex);
+
+            cmb_Temp.ValueMember = "Value";
+            cmb_Temp.DisplayMember = "Name";
+            cmb_Temp.DataSource = dtSex;
+            cmb_Temp.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void BindData()
+        {
+            DataTable dtData = new DataTable();
+            dtData.Columns.Add("ID");
+            dtData.Columns.Add("Name");
+            dtData.Columns.Add("Sex");
+            DataRow drData;
+            drData = dtData.NewRow();
+            drData[0] = 1;
+            drData[1] = "张三";
+            drData[2] = "1";
+            dtData.Rows.Add(drData);
+            drData = dtData.NewRow();
+            drData[0] = 2;
+            drData[1] = "李四";
+            drData[2] = "1";
+            dtData.Rows.Add(drData);
+            drData = dtData.NewRow();
+            drData[0] = 3;
+            drData[1] = "王五";
+            drData[2] = "1";
+            dtData.Rows.Add(drData);
+            drData = dtData.NewRow();
+            drData[0] = 4;
+            drData[1] = "小芳";
+            drData[2] = "0";
+            dtData.Rows.Add(drData);
+            drData = dtData.NewRow();
+            drData[0] = 5;
+            drData[1] = "小娟";
+            drData[2] = "0";
+            dtData.Rows.Add(drData);
+            drData = dtData.NewRow();
+            drData[0] = 6;
+            drData[1] = "赵六";
+            drData[2] = "1";
+            dtData.Rows.Add(drData);
+            this.grid.DataSource = dtData;
+        }
+
+        //-----------------------------------
 
         private void Grid_ScrollValueChanged(object sender, EventArgs e)
         {
@@ -467,6 +577,11 @@ namespace Braincase.GanttChart
 
 
         #endregion Print        
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TestException();
+        }
     }
 
     #region overlay painter
