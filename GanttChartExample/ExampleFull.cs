@@ -137,6 +137,10 @@ namespace Braincase.GanttChart
             grid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             grid.RowTemplate.Height = _mChart.BarSpacing;
             grid.ScrollBars = ScrollBars.Both;
+            grid.ScrollBars = ScrollBars.Horizontal;
+            grid.SetVScrollHide();
+            grid.SetVScrollWidth(1);
+
             //grid.ScrollBars = ScrollBars.Horizontal;
             grid.Scroll += Grid_Scroll;
             grid.ScrollValueChanged += Grid_ScrollValueChanged;
@@ -144,8 +148,8 @@ namespace Braincase.GanttChart
             this.gridChartSpliter.Panel2.MouseWheel += Panel2_MouseWheel;
             //this.gridChartSpliter.Click += GridChartSpliter_Click;
             //this.gridChartSpliter.Panel2.Click += Panel2_Click;
-            this._mChart.Resize += (s, e) => this.Resize();
-            SetGrid();
+            this._mChart.Resize += (s, e) => this.Resize();            
+            //SetGrid();
         }
 
         //-----------------------------------
