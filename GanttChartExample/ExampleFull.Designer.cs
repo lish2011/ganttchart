@@ -81,9 +81,9 @@
             this.mnuViewIntructions = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this._mSplitter1)).BeginInit();
             this._mSplitter1.Panel1.SuspendLayout();
             this._mSplitter1.Panel2.SuspendLayout();
@@ -235,10 +235,10 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this._mResourceGrid);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(302, 366);
+            this.tabPage3.Size = new System.Drawing.Size(302, 364);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Resources";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -250,7 +250,7 @@
             this._mResourceGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this._mResourceGrid.Location = new System.Drawing.Point(3, 3);
             this._mResourceGrid.Name = "_mResourceGrid";
-            this._mResourceGrid.Size = new System.Drawing.Size(296, 360);
+            this._mResourceGrid.Size = new System.Drawing.Size(296, 358);
             this._mResourceGrid.TabIndex = 0;
             this._mResourceGrid.UseCompatibleStateImageBehavior = false;
             this._mResourceGrid.View = System.Windows.Forms.View.List;
@@ -263,10 +263,10 @@
             // 
             this.tabPage4.Controls.Add(this.TaskGridView);
             this.tabPage4.Controls.Add(this.label1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(302, 366);
+            this.tabPage4.Size = new System.Drawing.Size(302, 364);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Task List";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -277,7 +277,7 @@
             this.TaskGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TaskGridView.Location = new System.Drawing.Point(3, 18);
             this.TaskGridView.Name = "TaskGridView";
-            this.TaskGridView.Size = new System.Drawing.Size(296, 345);
+            this.TaskGridView.Size = new System.Drawing.Size(296, 343);
             this.TaskGridView.TabIndex = 0;
             this.TaskGridView.SelectionChanged += new System.EventHandler(this._mTaskGridView_SelectionChanged);
             // 
@@ -580,6 +580,13 @@
             this.mnuHelpAbout.Text = "About Gantt Chart";
             this.mnuHelpAbout.Click += new System.EventHandler(this.mnuHelpAbout_Click);
             // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.testToolStripMenuItem.Text = "Test";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -595,13 +602,6 @@
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(1181, 17);
             this.lblStatus.Spring = true;
-            // 
-            // testToolStripMenuItem
-            // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.testToolStripMenuItem.Text = "Test";
-            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // ExampleFull
             // 

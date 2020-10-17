@@ -352,15 +352,8 @@ namespace Braincase.GanttChart
                     {
                         return row;
                     }
-                    else
-                    {
-                        return -1;
-                    }
-                }
-                else
-                {
-                    return -1;
                 }                
+                return -1;
             }
             set
             {

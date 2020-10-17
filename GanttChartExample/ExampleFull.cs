@@ -47,7 +47,7 @@ namespace Braincase.GanttChart
 
             // Create another 1000 tasks for stress testing
             Random rand = new Random();
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 10; i++)
             {
                 var task = new MyTask(_mManager) { Name = string.Format("New Task {0}", i.ToString()) };
                 _mManager.Add(task);
@@ -137,7 +137,7 @@ namespace Braincase.GanttChart
             grid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             grid.RowTemplate.Height = _mChart.BarSpacing;
             grid.ScrollBars = ScrollBars.Both;
-            grid.ScrollBars = ScrollBars.Horizontal;
+            //grid.ScrollBars = ScrollBars.Horizontal;
             grid.SetVScrollHide();
             grid.SetVScrollWidth(1);
 
@@ -284,7 +284,7 @@ namespace Braincase.GanttChart
                 if (grid.VScrollValue > grid.VScrollMin)
                 {
                     grid.FirstDisplayedScrollingRowIndex--;
-                    System.Diagnostics.Debug.WriteLine($"Panel2_MouseWheel <<<<<0");
+                    //System.Diagnostics.Debug.WriteLine($"Panel2_MouseWheel <<<<<0_{grid.FirstDisplayedScrollingRowIndex}");
                 }
             }
             else
@@ -292,7 +292,7 @@ namespace Braincase.GanttChart
                 if (grid.VScrollValue < grid.VScrollMaxValue)
                 {                                        
                     grid.FirstDisplayedScrollingRowIndex++;
-                    System.Diagnostics.Debug.WriteLine($"Panel2_MouseWheel >>>>>0");
+                    //System.Diagnostics.Debug.WriteLine($"Panel2_MouseWheel >>>>>0_{grid.FirstDisplayedScrollingRowIndex}");
                 }
             }
             //_mChart.FisrtDisplayedRow = grid.FirstDisplayedScrollingRowIndex;
@@ -305,7 +305,7 @@ namespace Braincase.GanttChart
         {
             grid.FirstDisplayedScrollingRowIndex = _mChart.FisrtDisplayedRow;
             //_mChart.Invalidate();
-            System.Diagnostics.Debug.WriteLine($"{grid.FirstDisplayedScrollingRowIndex},_mvScroll_Scroll-----");
+            //System.Diagnostics.Debug.WriteLine($"{grid.FirstDisplayedScrollingRowIndex},_mvScroll_Scroll-----");
         }
 
         private void Grid_Scroll(object sender, ScrollEventArgs e)
@@ -314,13 +314,29 @@ namespace Braincase.GanttChart
             //int tarIndex = grid.FirstDisplayedScrollingRowIndex;
             //_mChart.TryGetTask(tarIndex, out Task task);
             //_mChart.ScrollTo(task);
-            System.Diagnostics.Debug.WriteLine($"{grid.FirstDisplayedScrollingRowIndex},Grid_Scroll+++++");
+            //System.Diagnostics.Debug.WriteLine($"{grid.FirstDisplayedScrollingRowIndex},Grid_Scroll+++++");
         }
 
         public new void Resize()
         {
-            this._mChart.VerticalScroll.Minimum = grid.VScrollMin;
-            this._mChart.VerticalScroll.Maximum = grid.VScrollMaxValue;
+            this._mChart.Port._mvScroll.Minimum = grid.VScrollMin;
+            this._mChart.Port._mvScroll.Maximum = grid.VScrollMaxValue;
+        }
+
+        public void PrintValue()
+        {
+            var gridHeight = this.grid.Height;
+            var gridWidth = this.grid.Width;
+            var gridVScrollMax = this.grid.VScrollMaxValue;
+            var gridVScrollMin = this.grid.VScrollMin;
+            var visibleRowsHeight = grid.Rows.GetRowsHeight(DataGridViewElementStates.Visible);
+            var headerHeight = grid.ColumnHeadersHeight;
+            var valueStr = $"gridHeight:{gridHeight}_gridVScrollMax:{gridVScrollMax}_gridVScrollMin:{gridVScrollMin}" +
+                $"_visibleRowsHeight:{visibleRowsHeight}_headerHeight:{headerHeight}_gridVScrollValue:{grid.VScrollValue}" +
+                $"_HScrollHeight:{grid.HScrollHeight}_VScrollHeight:{grid.VScrollHeight}_VLargeChange:{grid.VLargeChange}_VSmallChange:{grid.VSmallChange}";
+            System.Diagnostics.Debug.WriteLine(valueStr);
+            // gridHeight:462_gridVScrollMax:544_gridVScrollMin:0_visibleRowsHeight:544_
+            // headerHeight:52_gridVScrollValue:160_HScrollHeight:17_VScrollHeight:443
         }
 
         //Chart.cs line319代码，这里的代码有个bug, 
@@ -584,7 +600,8 @@ namespace Braincase.GanttChart
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TestException();
+            //TestException();
+            PrintValue();
         }
     }
 

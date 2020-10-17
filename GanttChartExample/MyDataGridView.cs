@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// https://blog.csdn.net/truelove12358/article/details/17309143 
 namespace Braincase.GanttChart
 {
     public delegate void ScrollValueChangedEventHandler(object sender, EventArgs e);
@@ -34,7 +35,7 @@ namespace Braincase.GanttChart
         private void MyDataGridView_Resize(object sender, EventArgs e)
         {
             //this.VerticalScrollBar.Width = 1;
-            //this.VerticalScrollBar.Hide();
+            //this.VerticalScrollBar.Hide();            
         }
 
         private void MyDataGridView_Paint(object sender, PaintEventArgs e)
@@ -59,6 +60,14 @@ namespace Braincase.GanttChart
         {
             get => this.VerticalScrollBar.Value;
         }
+        public int VSmallChange => this.VerticalScrollBar.SmallChange;
+        public int VLargeChange => this.VerticalScrollBar.LargeChange;
+
+        public int VScrollHeight => this.VerticalScrollBar.Height;
+
+        public int HScrollHeight => this.HorizontalScrollBar.Height;
+
+        public int HScrollOffsetX => this.HorizontalScrollBar.AutoScrollOffset.X;
 
         public int VScrollMin => this.VerticalScrollBar.Minimum;
     }
